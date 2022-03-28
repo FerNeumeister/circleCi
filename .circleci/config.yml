@@ -2,7 +2,7 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 orbs:
-  fmeister: fmeister/new-orb-strike-3@0.1.0
+  fmeister-orb: fmeister/new-orb-strike-3@0.1.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -19,6 +19,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+      - fmeister-orb/greet
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -26,5 +27,3 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - fmeister/greet:
-          to: "El Meister"
